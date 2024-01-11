@@ -24,13 +24,3 @@ class Beverage
 $cola = new Beverage("black", 2.0);
 echo $cola->getInfo() . "\n";
 echo "Temperature: {$cola->temperature}";
-
-
-/* EXERCISE 1
-
-TODO: Instantiate an object which represents cola. Make sure that the color is set to black, the price equals 2 euro and the temperature to cold automatically
- print the getInfo on the screen.
-TODO: Print the temperature on the screen.
-
-USE TYPEHINTING EVERYWHERE!
-*/
