@@ -28,14 +28,17 @@ class Beer extends Beverage
         $this->name = $name;
         $this->alcoholPercentage = $alcoholPercentage;
     }
+
+    public function getAlcoholPercentage() 
+    {
+        return $this->$alcoholPercentage;
+        echo $this->$alcoholPercentage;
+    }
 }
 
 
 /* EXERCISE 2
 
-TODO: Make class beer that extends from Beverage.
-TODO: Create the properties name (string) and alcoholPercentage (float).
-TODO: Foresee a construct that's allows us to use all the properties from beverage and that sets the values for name and alcoholpercentage.
 
 Remember for now we will use properties and methods that can be accessed from everywhere.
 TODO: Make a getAlcoholPercentage function which returns the alocoholPercentage.
