@@ -18,9 +18,9 @@ USE TYPEHINTING EVERYWHERE!
 
 class Beverage
 {
-    public string $color;
-    public float $price;
-    public string $temperature;
+    private string $color;
+    private float $price;
+    private string $temperature;
 
     public function __construct(string $color, float $price, string $temperature = 'cold')
     {
@@ -32,13 +32,22 @@ class Beverage
     {
         return "This beverage is {$this->temperature} and {$this->color}.";
     }
+
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
+    }
 }
 
 class Beer extends Beverage
 {
-    public string $name;
-    public float $alcoholPercentage;
-
+    private string $name;
+    private float $alcoholPercentage;
 
     public function __construct(string $name, float $alcoholPercentage, string $color, float $price, string $temperature ='cold')
     {
@@ -47,17 +56,32 @@ class Beer extends Beverage
         $this->alcoholPercentage = $alcoholPercentage;
     }
 
+
     public function getAlcoholPercentage() 
     {
         return $this->alcoholPercentage;
     }
+
+    public function setColor(string $color): void
+    {
+        parent::setColor($color);
+    }
+
+    private function beerInfo(): string
+    {
+        return "Hi I'm {$this->name} and have an alcochol percentage of {$this->alcoholPercentage} and I have a {$this->getColor()} color.";
+    }
+
+    public function printBeerInfo(): void
+    {
+        echo $this->beerInfo() . "<br>";
+    }
+
 }
 
 $duvel = new Beer('Duvel', 8.5, 'blond', 3.5);
 echo $duvel->getAlcoholPercentage() . "<br>";
-echo $duvel->alcoholPercentage . "<br>";
 echo $duvel->getInfo() . "<br>";
-
-
-$duvel = new Beverage ('Duvel', 8.5, 'blond', 3.5);
-echo $duvel->getAlcoholPercentage() . "<br>";
+$duvel->printBeerInfo();
+$duvel->setColor('light');
+$duvel->printBeerInfo();
